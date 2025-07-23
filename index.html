@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz Js</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h3>T’es chaud en JS ?</h3>
+
+        <span class="evolution"></span>
+
+        <span id="score">0</span>
+        <!--La question-->
+        <p id="number_question"></p>
+        <p id="question"></p>
+
+        <form action="" id="quizForm">
+            <div class="propositions-wrapper">
+                <!--Les propositions de réponses -->
+                <div class="choice_container">
+                    <input type="radio" name="questionChoice" id="choice0" value="" class="custom-radio">
+                    <label for="choice0" id="label-choice0" class="custom-radio"></label>
+                </div>
+
+                <div class="choice_container">
+                    <input type="radio" name="questionChoice" id="choice1" value="" class="custom-radio">
+                    <label for="choice1" id="label-choice1" class="custom-radio"></label>
+                </div>  
+                
+                <div class="choice_container">
+                    <input type="radio" name="questionChoice" id="choice2" value="" class="custom-radio">
+                    <label for="choice2" id="label-choice2" class="custom-radio"></label>
+                </div>
+
+
+                <div class="choice_container">
+                    <input type="radio" name="questionChoice" id="choice3">
+                    <label for="choice3" id="label-choice3" class="custom-radio"></label>
+                </div>
+            </div>
+
+            <input type="submit" id="btn-submit" value="Vérifier">
+
+        </form>
+
+        <div class="en-plus"></div>
+        <div class="explication"></div>
+        <button class="btn-continue">Continuer </button>
+    </div>
+    <script src="static/js/script.js"></script>
+
+</body>
+</html>

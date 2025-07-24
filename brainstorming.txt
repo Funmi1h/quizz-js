@@ -1,42 +1,59 @@
 Un quizz sur js!!!
 Une question a choix mutiple avec une durée de temps disons 2 minutes.
-- Le quizz doit comporter 10 questions.
-- Chaque question doit avoir 4 réponses possibles.
+- Le quizz doit comporter 10 questions.🆗
+- Chaque question doit avoir 4 réponses possibles.🆗
 -
-    Chaque question doit être affichée une à une.
-    Les questions doivent être stockées dans un tableau d'objets genre la question et la liste des propositions de réponses et la réponse correcte.
-    - Récupérer ce que le user a cliqué dans une variable userAnswer et le comparer avec la bonne réponse.
+    Chaque question doit être affichée une à une.🆗
+    Les questions doivent être stockées dans un tableau d'objets genre la question et la liste des propositions de réponses et la réponse correcte.🆗
+    - Récupérer ce que le user a cliqué dans une variable userAnswer et le comparer avec la bonne réponse.🆗
     - Je dois intégrer une animation dee temps de pour chaque question.
 
 
-    - Si la réponse est bonne un message de félicitations s'affiche.
+    - Si la réponse est bonne un message de félicitations s'affiche.🆗
        .  La case coché devient verte.🆗
       . Je vais intégrer un son de félicitations
       . Le mot de félicitations doit varier donc je vais créer une liste de mots de félicitations.🆗
-      . Pour chaque bonne réponse, l'utilisateur gagne 1 points.
-      . Un trait vert évolue comme dans sololearn 
+      . Pour chaque bonne réponse, l'utilisateur gagne 1 points.🆗
 
 
     - Si la réponse est mauvaise, un message d'erreur s'affiche.
     . La case coché devient rouge.🆗
-      . Un trait rouge évolue comme dans sololearn
       . Je vais intégrer un son d'erreur
       . La case de la bonne réponse devient verte.🆗
 
 
 - Si le joueur le joueur ne répond pas et il reste 10s il y a un son de décompte.
-- Si le joueur répond avant que le temps soit écoulé il peut cliquer sur le boutn suivant 
 - Si le  joeur ne répond pas et le temps s'écoule, les boutons de réponse deviennent inactifs. et le bonne réponse devient verte
 
-- A la fin du quizz, un message de félicitations s'affiche avec le score final.
-  . Le score est calculé en fonction du nombre de bonnes réponses.
+- A la fin du quizz, un message de félicitations s'affiche avec le score final.🆗
+  . Le score est calculé en fonction du nombre de bonnes réponses.🆗
   . Un bouton pour recommencer le quizz ou pour quitter.
 
 - Le quizz doit être responsive et s'adapter à différentes tailles d'écran.
-Si le joeur répond il y a une div d'explications qui apparait en dessous de la question.
-  . Cette div contient des explications sur la bonne réponse.
-  . Elle doit être cachée par défaut et s'afficher uniquement après une réponse.
+Si le joeur répond il y a une div d'explications qui apparait en dessous de la question.🆗
+  . Cette div contient des explications sur la bonne réponse.🆗
+  . Elle doit être cachée par défaut et s'afficher uniquement après une réponse.🆗
 
-  - Rendre le bouton " Vérifier inactif si le joueur n'a rien coché."
+  - Rendre le bouton " Vérifier inactif si le joueur n'a rien coché."🆗
 
-  Ce que je veux concretement c'est que si je clique ssur vérifier et les mots de félcitations s'affiche ou d'erreurs que j'ai juste maintenant un bouton continuer et quand je clique sur ca une autre quetion viens avec son vérififer
+
+  
+
+  // Pour colorer l'input sélectionner ou le décolorer s'il est déselectionner
+function setUpRadioListeners(){
+    let radios = document.getElementsByName("questionChoice");
+    radios.forEach(radio  =>{
+        radio.addEventListener('change', () =>{
+                Array.from(document.querySelectorAll('.choice_container')).forEach(container =>{
+                container.style.backgroundColor= 'transparent';
+                container.style.borderColor = "transparent";
+            })
+        });
+
+        const container = radio.closest('.choice_container');
+        if (radio.checked){
+            container.style.backgroundColor = "rgb(149, 177, 238)";
+            container.style.borderColor = "rgb(56, 111, 231)";
+        }
+    })
+}

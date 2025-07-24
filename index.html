@@ -5,20 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizz Js</title>
     <link rel="stylesheet" href="static/css/style.css">
+    <!--Fontawesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
     <div class="wrapper">
-        <h3>T’es chaud en JS ?</h3>
-
-        <span class="evolution"></span>
-
-        <span id="score">0</span>
+        <div class="infos">
+            <h3>T’es chaud en JS ?</h3>
+            <P>Un petit quizz de dix questions pour tester ton niveau en Js. T'es prêt?</P>
+            <button id="play">Jouer</button>
+        </div>
+        <div id="loader">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+        <div class="jeu">
+        
+        
         <!--La question-->
-        <p id="number_question"></p>
-        <p id="question"></p>
+
+        
 
         <form action="" id="quizForm">
+            <div class="container-evolution-score">
+                <span class="evolution"></span>
+                <div class="score-timer">
+                    <span id="score">Score:0</span>
+                    <span id="timer-display"></span>
+                </div>
+
+        </div>
+            
             <div class="propositions-wrapper">
+                <p id="number_question"></p>
+                <p id="question"></p>
                 <!--Les propositions de réponses -->
                 <div class="choice_container">
                     <input type="radio" name="questionChoice" id="choice0" value="" class="custom-radio">
@@ -44,12 +66,22 @@
 
             <input type="submit" id="btn-submit" value="Vérifier">
 
-        </form>
 
-        <div class="en-plus"></div>
+            <div class="en-plus"></div>
+        
+
         <div class="explication"></div>
         <button class="btn-continue">Continuer </button>
+        
+    <div id="replay">Rejouer </div>
+        </form>
+
+      
+
+
+        </div>
     </div>
+
     <script src="static/js/script.js"></script>
 
 </body>

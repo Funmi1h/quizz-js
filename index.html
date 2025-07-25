@@ -22,25 +22,28 @@
             <div class="bubble"></div>
         </div>
         <div class="jeu">
-        
-        
-        <!--La question-->
 
+        
+
+        
         
 
         <form action="" id="quizForm">
+            <!--La question-->
+        <div class="div-question">
+            <p id="number_question"></p>
+            <p id="question"></p>
+        </div>
+
+
+            <div id="timer-display"></div>
             <div class="container-evolution-score">
                 <span class="evolution"></span>
-                <div class="score-timer">
-                    <span id="score">Score:0</span>
-                    <span id="timer-display"></span>
-                </div>
-
-        </div>
+                <span id="score">0</span>
+            </div>
             
             <div class="propositions-wrapper">
-                <p id="number_question"></p>
-                <p id="question"></p>
+                
                 <!--Les propositions de réponses -->
                 <div class="choice_container">
                     <input type="radio" name="questionChoice" id="choice0" value="" class="custom-radio">
@@ -65,22 +68,20 @@
             </div>
 
             <input type="submit" id="btn-submit" value="Vérifier">
-
-
-            <div class="en-plus"></div>
-        
-
-        <div class="explication"></div>
-        <button class="btn-continue">Continuer </button>
-        
-    <div id="replay">Rejouer </div>
+    
         </form>
 
-      
+        <div class="tempsEcoule"></div>
+        <div class="en-plus"></div>
+        <div class="explication"></div>
+        <button class="btn-continue">Continuer </button>
 
+        <div id="replay">Rejouer </div>
 
         </div>
-    </div>
+
+        </div>
+
 
     <script src="static/js/script.js"></script>
 

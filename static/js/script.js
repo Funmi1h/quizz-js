@@ -158,6 +158,7 @@ function updateForm (questionTable){
 // Cette fonction va nettoyer tous les champs quand on passe a la prochaine question
 function resetUi(){
     console.log('Ressetting Ui 🆒🆗📝')
+    divTempsEcoule.textContent = ""
 
     // d´selectionner les bouttons radios
     let inputsRadios = document.getElementsByName('questionChoice');
@@ -412,6 +413,7 @@ let play = document.getElementById('play')
 
 document.addEventListener('DOMContentLoaded', () => {
     play.addEventListener("click", () =>{
+        loader.style.display = 'block'
         setTimeout(() => {
                     infos.style.display= "none"
                     loader.style.display = 'none';

@@ -90,7 +90,7 @@ input[type="radio"] {
 }
 
 .choice_container:hover{
-    transform: scale(1.05);
+    transform: scale(1.015);
 }
 .btn-continue{
     display: none;
@@ -129,7 +129,7 @@ input[type="radio"] {
     font-size: 18px;
     border: 1px solid;
     text-align: center;
-    margin: auto;
+    margin: 2em auto;
     
 }
 
@@ -145,10 +145,6 @@ input[type="radio"]{
 label{
     margin: 0.5em;
 }
-
-
-
-
 /*le loader */
 
 #loader{
@@ -170,7 +166,7 @@ label{
     60%, 70%, 80%{
         opacity: 0.5;
     }
-    
+
 }
 .bubbles{
 
@@ -213,7 +209,7 @@ label{
 }
 
 .infos{
-    margin: 250px ;
+    margin: 10em auto;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -247,3 +243,35 @@ label{
     align-items: center;
     justify-content: center;
 }
+
+@media screen and (max-width: 767px){
+    
+    .evolution{
+        display: none;
+    }
+
+    .propositions-wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+
+    .choice_container{
+        margin: 10px;
+        border-radius: 10px;
+        height: 4em;
+        width: 300px;
+        text-align: center;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 15px;
+    }
+    .explication{
+        width: 100%;
+    }
+}
+
+

@@ -53,8 +53,8 @@ function checkAnswer(form, questionTable){
             
                 // on récupere d'abord la case
             let choiceContainer = document.querySelector('input[name="questionChoice"]:checked')
-            choiceContainer.parentElement.style.backgroundColor ='rgba(83, 228, 126, 1)';
-            choiceContainer.parentElement.style.border = '2px solid rgba(137, 247, 103, 1)'
+            choiceContainer.parentElement.style.backgroundColor ='rgba(201, 245, 214, 1)';
+            choiceContainer.parentElement.style.border = '2px solid rgba(93, 224, 54, 1)'
             // liste de Mots de félicitations
             let congrats = ['Bravo!', 'Bien joué!', 'Impressionnant', 'Continues comme ça', 'Tu maitrises grave !'];
             
@@ -77,7 +77,7 @@ function checkAnswer(form, questionTable){
             
                 // on récupere d'abord la case
             let choiceContainer = document.querySelector('input[name ="questionChoice"]:checked');
-            choiceContainer.parentElement.style.backgroundColor ='rgba(240, 149, 126, 1)';
+            choiceContainer.parentElement.style.backgroundColor ='rgba(243, 211, 202, 1)';
             choiceContainer.parentElement.style.border = '2px solid rgba(235, 64, 21, 1)'
 
             // Rechercher l'input qui a la bonne réponse et le colorier en green
@@ -87,21 +87,21 @@ function checkAnswer(form, questionTable){
                     questionChoicesInput.forEach(input =>{
                         if (input.value.trim() === questionTable.correct.trim()){
                         let trueAnswerChoiceContainer = input.parentElement;
-                        trueAnswerChoiceContainer.style.backgroundColor = 'rgba(83, 228, 126, 1)';
-                        trueAnswerChoiceContainer.style.border = '2px solid rgba(137, 247, 103, 1)';
+                        trueAnswerChoiceContainer.style.backgroundColor = 'rgba(201, 245, 214, 1)';
+                        trueAnswerChoiceContainer.style.border = '2px solid rgba(93, 224, 54, 1)';
 
-                    }
-                    })
+                    };
+                    });
             // Mots d'erreurs
             let errors = ['Oups ! Mauvaise réponse.', 'Pas tout à fait.', 'Tu y étais presque.', 'Dommage!', 'Aïe ! Ce n’était pas la bonne...'];
             // Générer un mot d'erreurs 
                 // indice du mot d'erreurs dans la liste 
-            let index = Math.floor(Math.random() * errors.length)
+            let index = Math.floor(Math.random() * errors.length);
                 // Géneration du mot de félicitations
-            let  randomErrorWord = errors[index]
-            let paragrapheMotsError = document.createElement('p')
-            paragrapheMotsError.textContent = randomErrorWord
-            divEnPlus.appendChild(paragrapheMotsError)
+            let  randomErrorWord = errors[index];
+            let paragrapheMotsError = document.createElement('p');
+            paragrapheMotsError.textContent = randomErrorWord;
+            divEnPlus.appendChild(paragrapheMotsError);
         }
 
         // aFFichage de l'explication;
@@ -151,6 +151,7 @@ function updateForm (questionTable){
     choice3.value = labelChoice3.textContent;
 
     setUpRadioListeners()
+ 
   
 }
 
@@ -158,7 +159,7 @@ function updateForm (questionTable){
 // Cette fonction va nettoyer tous les champs quand on passe a la prochaine question
 function resetUi(){
     console.log('Ressetting Ui 🆒🆗📝')
-    divTempsEcoule.textContent = ""
+    divTempsEcoule.textContent = "";
 
     // d´selectionner les bouttons radios
     let inputsRadios = document.getElementsByName('questionChoice');
@@ -186,6 +187,7 @@ function resetUi(){
     let btnSubmit = document.getElementById('btn-submit');
     btnContinue.style.display = 'none';
     btnSubmit.style.display = 'block';
+    startQuestionTimer()
 
 
     }
@@ -325,14 +327,8 @@ let questions = [question1, question2, question3, question4, question5, question
 function updateprogressBar(){
     console.log('Le trait évolue');
     let progressBar = document.querySelector('.evolution');
-    
-    if(progressBar.style.width === "900px"){
-        progressBar.style.width = '900px';
-    } else{
-    progress += 60;
-    progressBar.style.width = `${progress}px `;
-    }
-    
+    progress += 100;
+    progressBar.style.width = `${progress}px `;    
 
 }
 
@@ -343,7 +339,8 @@ function updateprogressBar(){
 function startQuestionTimer(){
     let timeLeft = timeLimit; //Pour réinitialiser le temps 
     timerDisplay.style.display = 'block';
-    timerDisplay.textContent = `Temps restant: ${timeLeft}`;
+    timerDisplay.style.color= "black";
+    timerDisplay.textContent = `Temps restant: ${timeLeft}s`;
     
     if (timerInterval){
         clearInterval(timerInterval);
@@ -410,52 +407,54 @@ jeu.style.display = 'none'
 let loader = document.getElementById('loader')
 let play = document.getElementById('play')
 
-
-document.addEventListener('DOMContentLoaded', () => {
-    play.addEventListener("click", () =>{
-        loader.style.display = 'block'
+play.addEventListener("click", () =>{
+        loader.style.display = 'flex';
+        infos.style.display= "none";
         setTimeout(() => {
-                    infos.style.display= "none"
+                    
                     loader.style.display = 'none';
-                    jeu.style.display = 'block';                    
+                    jeu.style.display = 'block';   
+                    startQuestionTimer();                 
             }, 3000);
 
-    })
+    });
 
+document.addEventListener('DOMContentLoaded', () => {
+    
         //mise a jour du formulaires avec la premiere question et propositions de réponses lorsque la page se charge 
         questionNumber.textContent = `Question: ${currentQuestionIndex +1} / ${questions.length} `;
         updateForm(questions[currentQuestionIndex]);
         activateSubmit();
         btnContinue.style.display = 'none';
         btnSubmit.style.display = 'block';
-        startQuestionTimer()
-
-
-
-})
+});
 
 
 function finalWord(){
-    if(1 < score <= 3){
-        explication.textContent = `Bravo tu as fini le Quizz avec un score de ${n} sur ${questions.length} ! Il faut travailler dur pour améliorer tes compétences!`
-    }
-    if(4 <= score <= 5){
-        explication.textContent = `Bravo tu as fini le Quizz avec un score de ${n} sur ${questions.length} ! C'est un bou début mais il y a encore du travail à faire!`
+    console.log("Mots de fin")
+    console.log(`Score: ${n}`)
+    btnContinue.style.display = 'none';
+    divTempsEcoule.style.display = 'none';
+    let commentaire = "";
+    if( n >= 0 && 3 >= n ){
 
-    }
-    if (6 <= score <= 7){
-        explication.textContent = `Bravo tu as fini le Quizz avec un score de ${n} sur ${questions.length} ! Tu as montré des compétences solides continues comme ça!`
-
-    }
-    if(8 <= score <= 9){
-        explication.textContent = `Bravo tu as fini le Quizz avec un score de ${n} sur ${questions.length} ! Excellente performance tu es vraiment doué!`
-
-    }
-    if (score === 10){
-        explication.textContent = `Bravo tu as fini le Quizz avec un score de ${n} sur ${questions.length} ! Parfait1 Tu as démontré une maitrise exceptionnelle`
-
-    }
-}
+        commentaire = `Bravo tu as fini le Quizz avec un score de ${n} sur ${questions.length} ! Il faut travailler dur pour améliorer tes compétences!`;
+    };
+    if(n  === 4 || n === 5 ){
+        commentaire = `Bravo tu as fini le Quizz avec un score de ${n} sur ${questions.length} ! C'est un bou début mais il y a encore du travail à faire!`;
+    };
+    if (n ===6 || n === 7){
+        commentaire = `Bravo tu as fini le Quizz avec un score de ${n} sur ${questions.length} ! Tu as montré des compétences solides continues comme ça!`;
+    };
+    if(n === 8 ||n === 9){
+        commentaire = `Bravo tu as fini le Quizz avec un score de ${n} sur ${questions.length} ! Excellente performance tu es vraiment doué!`;
+    };
+    if (n === 10){
+        commentaire = `Bravo tu as fini le Quizz avec un score de ${n} sur ${questions.length} ! Parfait1 Tu as démontré une maitrise exceptionnelle`;
+    };
+    
+    return commentaire;
+};
 
 
 const quizForm = document.getElementById('quizForm');
@@ -466,7 +465,7 @@ quizForm.addEventListener('submit', function(event){
 
 btnContinue.addEventListener('click', () =>{
             currentQuestionIndex++;
-            updateprogressBar()
+            updateprogressBar();
 
             if (currentQuestionIndex < questions.length){
                 questionNumber.textContent = `Question: ${currentQuestionIndex +1} `;
@@ -474,24 +473,24 @@ btnContinue.addEventListener('click', () =>{
                 resetUi(); // Pour réinitialiser l'interface utilisateur
                 updateForm(questions[currentQuestionIndex]); // POUr charger la nouvelle question
                 activateSubmit(); // ACTIVER ou désactiver la nouvelle question  
-                startQuestionTimer()
+
  } else {
                 // Le quizz est fini
-                console.log('Le quizz est fini😊😊⏲️')
+                console.log('Le quizz est fini😊😊⏲️');
                 resetUi();
                 questionNumber.textContent = 'Quizz terminé !!';
-                finalWord();
+                explication.textContent = finalWord();
                 explication.style.display = 'block';
-                btnContinue.style.display = 'none';
+                btnContinue.style.opacity = '0';
                 btnSubmit.style.display = 'none';
                 quizForm.style.display = 'none';
                 questionText.textContent = '';
                 timerDisplay.style.display = "none";
-                btnReplay.style.display = 'block'
+                btnReplay.style.display = 'block';
                 btnReplay.addEventListener('click', () =>{
                     location.reload()
-                })
-                score.style.display = 'none'
+                });
+                score.style.display = 'none';
                    
             }
 

@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quizz Js</title>
     <link rel="stylesheet" href="static/css/style.css">
-    <!--Fontawesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 <body>
@@ -16,31 +14,38 @@
             <P>Un petit quizz de dix questions pour tester ton niveau en Js. T'es prêt?</P>
             <button id="play">Jouer</button>
         </div>
+        
         <div id="loader">
-            <div class="bubble"></div>
-            <div class="bubble"></div>
-            <div class="bubble"></div>
+                <div class="bubbles">
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+            </div>
+            <span class="chargement">Chargement...</span>
         </div>
-        <div class="jeu">
-
-        
-
-        
-        
+        <div class="jeu">        
 
         <form action="" id="quizForm">
+
             <!--La question-->
         <div class="div-question">
+
+            <div class="time-score">
+                <span id="timer-display"></span>
+                <span id="score">Score: 0</span>
+            </div>
+
+            <div class="evolution"></div>
+
             <p id="number_question"></p>
             <p id="question"></p>
+
+           
+            
         </div>
 
 
-            <div id="timer-display"></div>
-            <div class="container-evolution-score">
-                <span class="evolution"></span>
-                <span id="score">0</span>
-            </div>
+
             
             <div class="propositions-wrapper">
                 
@@ -80,7 +85,7 @@
 
         </div>
 
-        </div>
+    </div>
 
 
     <script src="static/js/script.js"></script>

@@ -5,7 +5,6 @@
 }
 
 body{
-
     font-family: monospace;
 }
 
@@ -18,14 +17,13 @@ body{
 
 .evolution {
     position: absolute;
-    left: 50px; 
-    top: 80%;
-    transform: translateY(-50%);
     height: 12px;
     background-color: rgb(56, 111, 231);
     width:0 ; 
     border-radius: 12px;
-    text-align: center;
+    margin:2em 0em 2em 0em;
+    left: 200px;
+    transition: width 1s ease-in-out;
 }
 .div-question{
     display: flex;
@@ -37,17 +35,14 @@ body{
     text-align: center;
 }
 
-@media (max-width: 767px) {
-    .propositions-wrapper{
-        display: flex;
-        flex-direction: column;
-    }
+.time-score{
+    margin-top: 2em;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    gap: 10px;
 }
 #score {
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
     background-color: rgb(56, 111, 231);
     color: white;
     padding: 8px 16px;
@@ -138,6 +133,9 @@ input[type="radio"] {
     
 }
 
+#play{
+    margin-top: 2em;
+}
 input[type="radio"]{
     display: block;
 }
@@ -154,24 +152,46 @@ label{
 /*le loader */
 
 #loader{
-    margin: 250px;
+    margin: auto;
     display: none;
     height: 100vh;
     background-color: transparent;
     justify-content: center;
     align-items: center;
-    gap: 10px
+    flex-direction: column;
+    transition: desappear 1s ease-in-out;
 }
 
-.bubble{
+@keyframes desappear {
+    0%, 10%, 30%{
+        opacity: 0.7;
+    }
+
+    60%, 70%, 80%{
+        opacity: 0.5;
+    }
     
+}
+.bubbles{
+
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+.bubble{    
     width: 15px;
     height: 15px;
     background-color: rgb(56, 111, 231);
     border-radius: 50%;
     animation: bounce 1.2s infinite ease-in-out;
 }
-
+.chargement{
+ 
+    color: rgb(194, 190, 190);
+}
 @keyframes bounce {
     0%, 80%, 100%{
         transform: scale(0);
@@ -206,12 +226,24 @@ label{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transition: all 1s ease-out;
 }
 .tempsEcoule, .en-plus {
     margin: auto;
     text-align: center;
-}
+    }
 
-#timer-display{
-    margin-left: 5em;
+.tempsEcoule{
+    color: red;
+
+}
+#number_question{
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+.div-question{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
